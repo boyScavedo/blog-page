@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorepostRequest;
 use App\Http\Requests\UpdatepostRequest;
-use App\Models\post;
+use App\Models\Post;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -14,11 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $markdown = "# Hello World";
-        $content = Str::markdown($markdown);
+        $posts = Post::all();
 
-
-        return view('page.home', compact('content'));
+        return view('page.home', compact('posts'));
     }
 
     /**
